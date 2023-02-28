@@ -1,8 +1,6 @@
 // Plugins
 import Vue from "@vitejs/plugin-vue";
 import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
-import Pages from "vite-plugin-pages";
-import Layouts from "vite-plugin-vue-layouts";
 
 // Utilities
 import { defineConfig } from "vite";
@@ -14,8 +12,6 @@ export default defineConfig({
     Vue({
       template: { transformAssetUrls },
     }),
-    Pages(),
-    Layouts(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     Vuetify({
       autoImport: true,
