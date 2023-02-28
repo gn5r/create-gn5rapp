@@ -5,6 +5,8 @@ type Context = {
   projectName?: string;
   author?: string;
   version?: string;
+  usePages?: boolean;
+  useVueLayouts?: boolean;
   usePackageManager?: "npm" | "yarn";
 };
 
@@ -28,6 +30,22 @@ async function initPrompts(context: Context) {
         type: "text",
         message: "Version:",
         initial: "0.1.0",
+      },
+      {
+        name: "usePages",
+        type: "toggle",
+        message: "usePages?",
+        active: "Yes",
+        inactive: "No",
+        initial: false,
+      },
+      {
+        name: "useVueLayouts",
+        type: "toggle",
+        message: "useVueLayouts?",
+        active: "Yes",
+        inactive: "No",
+        initial: false,
       },
       {
         name: "usePackageManager",

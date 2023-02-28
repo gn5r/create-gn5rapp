@@ -16,8 +16,15 @@ async function run() {
     projectName: defaultProjectName,
   };
 
-  const { cwd, projectName, author, version, usePackageManager } =
-    await initPrompts(context);
+  const {
+    cwd,
+    projectName,
+    author,
+    version,
+    usePages,
+    useVueLayouts,
+    usePackageManager,
+  } = await initPrompts(context);
 
   const projectRoot = join(cwd, projectName);
   mkdirSync(projectRoot);
@@ -35,7 +42,15 @@ async function run() {
   );
 
   const templatePath = resolve(__dirname, "../template");
-  renderTemplate(resolve(templatePath, "default"), projectRoot);
+  renderTemplate(resolve(templatePath, "base"), projectRoot);
+
+  if (usePages && useVueLayouts) {
+    renderTemplate(resolve(templatePath, "pagesAndVueLayouts"), projectRoot);
+  } else if (usePages) {
+    renderTemplate(resolve(templatePath, "pages"), projectRoot);
+  } else if (useVueLayouts) {
+    renderTemplate(resolve(templatePath, "vueLayouts"), projectRoot);
+  }
 
   if (usePackageManager) {
     console.log(`Installing dependencies with ${usePackageManager}...\n`);
