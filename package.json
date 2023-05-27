@@ -1,6 +1,6 @@
 {
   "name": "create-gn5rapp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/index.cjs",
   "author": {
     "name": "shangyuan.tuolang",
@@ -24,7 +24,8 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
