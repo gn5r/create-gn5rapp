@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { resolve, join } from "node:path";
 import { mkdirSync, writeFileSync } from "node:fs";
 
